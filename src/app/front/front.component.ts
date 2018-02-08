@@ -12,7 +12,7 @@ export class FrontComponent implements OnInit {
   constructor(public mediaService: MediaService) { }
 
   ngOnInit() {
-    this.mediaService.getAllMedia().subscribe(data => {
+    this.mediaService.getNew().subscribe(data => {
       console.log(data);
       this.mediaArray = data;
 

@@ -13,8 +13,9 @@ export class MediaService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  getAllMedia() {
-    return this.http.get(this.apiUrl + '/media');
+  getNew() {
+
+    return this.http.get(this.apiUrl + '/media?start=01&limit=10');
   }
 
   newUser(user) {
@@ -25,7 +26,6 @@ export class MediaService {
     this.http.post<Login>(this.apiUrl + '/login', user).subscribe(response => {
       // kaikki ok -> front
       console.log(response);
-      this.logged = true;
       localStorage.setItem('token', response.token);
       this.router.navigate(['front']);
     }, (error: HttpErrorResponse) => {

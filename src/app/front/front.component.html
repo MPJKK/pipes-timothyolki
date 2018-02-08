@@ -1,9 +1,8 @@
 <div class="gallery">
-  <div *ngFor="let media of mediaArray">
-    <img [src]="mediaService.mediaUrl + media.thumbnail" [alt]="media.title">
-    <div>
-      <h5>{{ media.title }}</h5>
-      <p>{{ media.description }}</p>
-    </div>
+  <div *ngFor="let file of mediaArray">
+    <img [alt]="file.title"
+         [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + (file.filename | piippu: 'small')">
+    <h5>{{ file.title }}</h5>
+    <p>{{ file.description }}</p>
   </div>
 </div>
